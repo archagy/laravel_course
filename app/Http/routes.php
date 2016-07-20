@@ -17,7 +17,13 @@ Route::get('/', function () {
 
 
 Route::group(['prefix' => 'api'], function() {
+	/*
 	Route::get('products', ['as'=>'products', function(){
-		return App\Product::all();
+		return App\Product::all(); //Json Default Request
 	}]);
+	*/
+	Route::resource('products','ProductController', ['only'=>[
+		'index','store','update']]);
 });
+
+
